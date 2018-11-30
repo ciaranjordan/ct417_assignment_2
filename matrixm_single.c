@@ -16,7 +16,6 @@ int main(void)
   double s, angle;
   double wtime;
 
-
   printf ( "\n" );
   printf ( "  Compute matrix product C = A * B\n" );
 
@@ -34,18 +33,22 @@ int main(void)
 
   wtime = omp_get_wtime();
 
+  #pragma omp parallel shared (a, b, c, n, pi, s) private (angle, i, j, k)
+  {
   for (i = 0; i < n; i++)
   {
+    #pragma omp for schedule(static)
     for (j = 0; j < n; j++)
     {
       angle = 2.0 * pi * i * j / (double) n;
       a[i][j] = s * (sin (angle) + cos (angle));
     }
   }
-	  
+ 
   /*
     Loop 2: Copy A into B.
   */
+  #pragma omp for schedule(static)
   for (i = 0; i < n; i++)
   {
     for (j = 0; j < n; j++)
@@ -57,6 +60,7 @@ int main(void)
   /*
     Loop 3: Compute C = A * B.
   */
+  #pragma omp for schedule(guided, 8)
   for (i = 0; i < n; i++)
   {
     for ( j = 0; j < i; j++ ) // n
@@ -68,7 +72,7 @@ int main(void)
       }
     }
   }
-  
+  }
   wtime = omp_get_wtime ( ) - wtime;
   
   printf ( "  Elapsed time = %g seconds\n", wtime );

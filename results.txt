@@ -1,0 +1,74 @@
+// Performance analysis
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				static
+
+Run 1:					1.87344 seconds
+Run 2:					1.82876 seconds
+Run 3:					1.86208 seconds
+
+Av. Execution Time:		1.85476 seconds
+
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				static, chunk-size = 1
+
+Run 1:					1.16424 seconds
+Run 2:					1.21823 seconds
+Run 3:					1.16470 seconds
+
+Av. Execution Time:		1.18239 seconds
+
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				dynamic
+
+Run 1:					1.13205 seconds
+Run 2:					1.17454 seconds
+Run 3:					1.22439 seconds
+
+Av. Execution Time:		1.17699 seconds
+
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				dynamic, chunk-size = 4
+
+Run 1:					1.15869 seconds
+Run 2:					1.16959 seconds
+Run 3:					1.13272 seconds
+
+Av. Execution Time:		1.15367 seconds
+
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				guided
+
+Run 1:					1.16473 seconds
+Run 2:					1.14676 seconds
+Run 3:					1.16552 seconds
+
+Av. Execution Time:		1.15900 seconds
+
+
+Loop 1: 				static
+Loop 2: 				static
+Loop 3: 				guided, chunk-size = 8
+
+Run 1:					1.14417 seconds
+Run 2:					1.20166 seconds
+Run 3:					1.17988 seconds
+
+Av. Execution Time:		1.17524 seconds
+
+
+
+
+
+
+
+
